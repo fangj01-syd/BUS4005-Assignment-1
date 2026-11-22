@@ -14,7 +14,7 @@ Tax-season client services, from a client booking an appointment to the return b
 Booking ─► P01 Welcome + checklist ─► P02 Reminders ◄─ tracker ─ P03 Intake classifier ─┐
 Bank feed ─► P04 Transaction coding ─► P05 Exception summary ──────────────────────────┼─► P10 Pre-lodgement check ─► Accountant review
 Shared inbox ─► P06 Triage ─► staff        Finalised return ─► P07 Client letter       │
-Accounting software ─► P08 Fee reminders    Job tracker ─► P09 Weekly report (logic-tested)
+Accounting software ─► P08 Fee reminders    Job tracker ─► P09 Weekly report
 ```
 
 ## Library summary
@@ -29,23 +29,23 @@ Accounting software ─► P08 Fee reminders    Job tracker ─► P09 Weekly re
 | [P06](prompts/P06.md) | Client email triage | Communication 1 | Routes to staff | Very high / Medium | Tested | v1.2 |
 | [P07](prompts/P07.md) | Plain-English return summary letter | Communication 2 | — | Medium / High | Tested | v1.2 |
 | [P08](prompts/P08.md) | Overdue fee reminder | Accounts receivable | — | High / Medium | Tested | v1.3 |
-| [P09](prompts/P09.md) | Weekly workload report for the partner | Practice management | — | High / Low | Logic-tested | v1.1 |
+| [P09](prompts/P09.md) | Weekly workload report for the partner | Practice management | — | High / Low | Tested – 1 fail | v1.1 |
 | [P10](prompts/P10.md) | Pre-lodgement consistency check | Quality control | Reviewer | Medium / High | Tested | v1.1 |
 
-**Status:** *Tested* = run on sample inputs, results in the file. *Logic-tested* = reviewed against invented data but not run on real records.
+**Status:** *Tested* = current version run on invented inputs with Claude Opus 5.5 (22 November 2026); full results in `tests/`. P09 failed one check — kept on purpose, with the fix noted.
 
 ## How to read this portfolio
 
 - `prompts/` — one file per prompt, with the same sections: prompt text · workflow / task · problem solved · automation potential · risks & limitations · **version history** · **test evidence**.
-- `tests/` — one test set per prompt: what it checks, the test cases (including edge cases), a sample input, and the result. All test inputs are invented; the results show the format, so run and record your own.
+- `tests/` — for each prompt: what was checked, the pass criteria, every input, the model’s actual output, and pass/fail. Criteria were written before the run, and the model never saw them.
 
 ## Tips for your own portfolio
 
 1. Create the repo on day one and save your first, weak prompt as v1.0 — it is evidence, not a mistake.
 2. Change **one thing at a time** and commit with a message that says what and why, e.g. `P03 v1.2 – added JSON output`.
 3. Keep the outputs, especially the failures. They show why each version changed.
-4. Label anything you could not test.
+4. Write your pass criteria before you run the test, and keep the failures.
 5. Before you submit, open the link in a private browser window to check the marker can see it.
 
 ---
-*Sample portfolio — all data and test results are illustrative. Prepared by Jacky Fang for BUS4005, La Trobe University Sydney.*
+*Tested on Claude Opus 5.5 (Anthropic), 22 November 2026, with invented data. Earlier prompt versions in each file are illustrative. Prepared by Jacky Fang for BUS4005, La Trobe University Sydney.*
