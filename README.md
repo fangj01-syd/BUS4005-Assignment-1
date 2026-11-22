@@ -34,9 +34,10 @@ Accounting software ─► P08 Fee reminders    Job tracker ─► P09 Weekly re
 
 **Status:** *Tested* = run on sample inputs, results in the file. *Logic-tested* = reviewed against invented data but not run on real records.
 
-## How to read each file
+## How to read this portfolio
 
-Every file in `prompts/` has the same sections: prompt text · workflow / task · problem solved · automation potential · risks & limitations · **version history** · **test evidence**.
+- `prompts/` — one file per prompt, with the same sections: prompt text · workflow / task · problem solved · automation potential · risks & limitations · **version history** · **test evidence**.
+- `tests/` — one test set per prompt: what it checks, the test cases (including edge cases), a sample input, and the result. All test inputs are invented; the results show the format, so run and record your own.
 
 ## Tips for your own portfolio
 
@@ -47,4 +48,4 @@ Every file in `prompts/` has the same sections: prompt text · workflow / task �
 5. Before you submit, open the link in a private browser window to check the marker can see it.
 
 ---
-*Tested on Microsoft 365 Copilot, November 2026 (sample). Prepared by Jacky Fang for BUS4005, La Trobe University Sydney.*
+*Sample portfolio — all data and test results are illustrative. Prepared by Jacky Fang for BUS4005, La Trobe University Sydney.*
