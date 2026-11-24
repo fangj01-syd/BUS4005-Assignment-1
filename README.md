@@ -30,16 +30,22 @@ Each prompt entry follows the same structure:
 ```
 BUS4005-Assignment-1/
 │
-├── README.md          ← You are here (library index)
+├── README.md                         ← You are here (library index)
 │
-├── prompts/           ← one file per prompt (P01–P10), all six sections above
-│   ├── P01.md  …  P10.md
+├── prompts/                          ← one file per prompt, all six sections above
+│   ├── P01.md … P10.md
 │
-└── tests/             ← evaluation evidence: criteria, every input, actual output, pass/fail
-    ├── P01.md  …  P10.md
+├── workflows/                        ← one folder per business workflow: overview, prompt chain, human checkpoints
+│   ├── 01-onboarding/README.md               P01, P02, P03
+│   ├── 02-bookkeeping-and-review/README.md   P04, P05, P10
+│   ├── 03-client-communication/README.md     P06, P07, P08
+│   └── 04-practice-management/README.md      P09
+│
+└── evaluations/                      ← test evidence per prompt: criteria, every input, actual output, pass/fail
+    ├── P01.md … P10.md
 ```
 
-> 💡 The unit template groups prompts into one folder per workflow (e.g. `01-onboarding/`). This sample keeps one `prompts/` folder and shows the workflow stage in the table below instead. Either layout is fine — what matters is that every prompt has the same sections and its test evidence is easy to find.
+> 💡 This follows the unit template's `prompts/` · `workflows/` · `evaluations/` layout. Rename the workflow folders to match your own business field.
 
 ---
 
@@ -47,20 +53,20 @@ BUS4005-Assignment-1/
 
 | ID | Prompt Name | Workflow | Automation Level | Risk Level | Status |
 |----|-------------|----------|-----------------|------------|--------|
-| [P01](prompts/P01.md) | Welcome email and document checklist | Onboarding | High | Medium | ✅ Tested (v1.2) |
-| [P02](prompts/P02.md) | Missing-document reminder | Onboarding | Very High | Medium | ✅ Tested (v1.2) |
-| [P03](prompts/P03.md) | Document intake classifier | Onboarding | High | Medium | ✅ Tested (v1.3) |
-| [P04](prompts/P04.md) | Bank transaction coding | Bookkeeping | High | High | ✅ Tested (v1.2) |
-| [P05](prompts/P05.md) | Reconciliation exception summary | Bookkeeping | Medium | Medium | ✅ Tested (v1.2) |
-| [P06](prompts/P06.md) | Client email triage | Client communication | Very High | Medium | ✅ Tested (v1.2) |
-| [P07](prompts/P07.md) | Plain-English return summary letter | Client communication | Medium | High | ✅ Tested (v1.2) |
-| [P08](prompts/P08.md) | Overdue fee reminder | Accounts receivable | High | Medium | ✅ Tested (v1.3) |
-| [P09](prompts/P09.md) | Weekly workload report for the partner | Practice management | High | Low | ⚠️ Tested – 1 fail (v1.1) |
-| [P10](prompts/P10.md) | Pre-lodgement consistency check | Quality control | Medium | High | ✅ Tested (v1.1) |
+| [P01](prompts/P01.md) | Welcome email and document checklist | [01 Onboarding](workflows/01-onboarding/README.md) | High | Medium | ✅ Tested (v1.2) |
+| [P02](prompts/P02.md) | Missing-document reminder | [01 Onboarding](workflows/01-onboarding/README.md) | Very High | Medium | ✅ Tested (v1.2) |
+| [P03](prompts/P03.md) | Document intake classifier | [01 Onboarding](workflows/01-onboarding/README.md) | High | Medium | ✅ Tested (v1.3) |
+| [P04](prompts/P04.md) | Bank transaction coding | [02 Bookkeeping](workflows/02-bookkeeping-and-review/README.md) | High | High | ✅ Tested (v1.2) |
+| [P05](prompts/P05.md) | Reconciliation exception summary | [02 Bookkeeping](workflows/02-bookkeeping-and-review/README.md) | Medium | Medium | ✅ Tested (v1.2) |
+| [P06](prompts/P06.md) | Client email triage | [03 Client communication](workflows/03-client-communication/README.md) | Very High | Medium | ✅ Tested (v1.2) |
+| [P07](prompts/P07.md) | Plain-English return summary letter | [03 Client communication](workflows/03-client-communication/README.md) | Medium | High | ✅ Tested (v1.2) |
+| [P08](prompts/P08.md) | Overdue fee reminder | [03 Accounts receivable](workflows/03-client-communication/README.md) | High | Medium | ✅ Tested (v1.3) |
+| [P09](prompts/P09.md) | Weekly workload report for the partner | [04 Practice management](workflows/04-practice-management/README.md) | High | Low | ⚠️ Tested – 1 fail (v1.1) |
+| [P10](prompts/P10.md) | Pre-lodgement consistency check | [02 Quality control](workflows/02-bookkeeping-and-review/README.md) | Medium | High | ✅ Tested (v1.1) |
 
 **Automation levels:** Very High / High / Medium / Low  
 **Risk levels:** High (always needs human review) / Medium (spot-check recommended) / Low (can automate with audit)  
-**Tested** = current version run on invented inputs with Claude Opus 5.5 on 22 November 2026; full results in `tests/`. P09 failed one check — kept on purpose, with the fix noted.
+**Tested** = current version run on invented inputs with Claude Opus 5.5 on 22 November 2026; full results in `evaluations/`. P09 failed one check — kept on purpose, with the fix noted.
 
 ---
 
